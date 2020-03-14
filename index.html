@@ -1,0 +1,70 @@
+<!doctype html>
+	<html lang="en-us" data-ng-app="myApp">
+		<head>
+		  <meta charset="utf-8">
+		  <title>Samueldddd Hinkhouse</title>
+		  <link rel="icon" href="img/favicon.png">
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900,500' rel='stylesheet' type='text/css'>
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      	  rel="stylesheet" type="text/css">
+		  <link rel="stylesheet" href="style-light.css">
+
+		  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		  <script src="//code.jquery.com/jquery-latest.min.js"></script>
+		  <script type="text/javascript" src="https://code.angularjs.org/1.3.0-rc.0/angular.min.js"></script>
+		  <script type="text/javascript" src="https://code.angularjs.org/1.3.0-rc.1/angular-route.min.js"></script>
+
+		  <script src="js/menubutton.js"></script>
+
+		  <script src="app.js"></script>
+		  <script src="js/flowtype.js"></script>
+		  <script type="text/javascript" src="flowtypeAction.js"></script>
+
+		</head>
+
+		<body>
+			<h2 class="beta" ng-show="false">BETA</h2>
+			<div class="logo">
+				<a href="#/home"  tabindex="1"><img id="logo" src="img/trans.png" alt="Website Logo"></a>
+			</div>
+
+			<div class="dropdown">
+				<i onclick="myFunction()" class="material-icons dropbtn" id="menuBtn">menu</i>
+
+				<div id="myDropdown" class="dropdown-content" data-ng-controller="navlinks">
+					<ul>
+						<li data-ng-repeat="item in items" >
+							<a href="#/{{item.page}}"  class="{{item.page}}" tabindex="{{item.number}}" accesskey="{{item.number}}">
+								<i class="material-icons iconmenu">{{item.icon}}</i>{{item.page}}
+							</a>
+						</li>
+					</ul>
+		  		</div>
+			</div>
+			<div class="navbar"></div>
+
+			<div class="content" ng-show="true">
+				<div class="post">
+					<h2 class="importantly">
+						test if content is loading correctly
+					</h2>
+				</div>
+			</div>
+
+			<!--Below is where content loads in with Angular-->
+			<div class="content" data-ng-view></div>
+			<div class="content">
+				<footer ng-controller="sociallinks">
+					<div class="footerlogo">
+						<a href="#/home" tabindex="1"><img src="img/trans.png" alt="Website Logo"></a>
+					</div>
+					<div class="sociallinks">
+						<ul id="ulstyle" >
+							<li ng-repeat = "link in items"><a href="{{link.page}}"><img class="{{link.class}}" src="{{link.image}}" alt="{{link.alt}}"></a></li>
+						</ul>
+					</div>
+				</footer>
+			</div>
+		</body>
+</html>
